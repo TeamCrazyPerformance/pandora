@@ -145,3 +145,4 @@ GET /dates/{date_id}
 ```json
 SUCCESS {"code":"200", "message":"OK", "data":{"date" : {"dateObject"}}}
 ```
+
