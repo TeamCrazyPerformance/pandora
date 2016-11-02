@@ -93,14 +93,14 @@ POST /dates
 
 ```json
 [{
-"date_pictures":"[{imageObject},{imageObject},..]",
-"date_location":"{locationObject}",
+"date_pictures":[{imageObject},{imageObject},..],
+"date_location":{locationObject},
 "date_review":"넘나 비싼 것이었다",
 "date_score":"3.0",
 "date_price":"15000"},
 {
-"date_pictures":"[{imageObject},{imageObject},..]",
-"date_location":"{locationObject}",
+"date_pictures":[{imageObject},{imageObject},..],
+"date_location":{locationObject},
 "date_review":"야경이 넘나 예쁜 것 이었다",
 "date_score":"5.0",
 "date_price":"0"
@@ -129,7 +129,7 @@ type          | 전체 / 지금 연인 (all | my)  |   my     | true     |
 * _Response_ 
 
 ```json
-{"code":"200", "message":"OK", "data":{"date_list":"[{dateObject}]", "size":"{number of dateObject}"}}
+{"code":"200", "message":"OK", "data":{"date_list":[{dateObject}], "size":{number of dateObject}}}
 ```
 
 ###Read Date
@@ -143,5 +143,5 @@ GET /dates/{date_id}
 * _Response_
 
 ```json
-SUCCESS {"code":"200", "message":"OK", "data":{"date" : "{dateObject}"}}
+SUCCESS {"code":"200", "message":"OK", "data":{"date" : {dateObject}}}
 ```
