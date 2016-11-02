@@ -122,9 +122,9 @@ GET /dates
 
 Parms Name    | description               |  Default | Optional |
 ------------- | ------------------------- | -------- | -------- |
-size          | 가져오는 단위 ( m | d )      |     d    | true     |
+size          | 가져오는 단위 ( m or d )      |     d    | true     |
 page          | paging value             |     1    | true     |
-type          | 전체 / 지금 연인 (all | my)  |   my     | true     |
+type          | 전체 / 지금 연인 (all or my)  |   my     | true     |
 
 * _Response_ 
 
