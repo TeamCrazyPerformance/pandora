@@ -14,6 +14,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.tcp.pandora.entity.Date;
 
+/**
+ * @author Ahn
+ * 테스트 실행이 되지 않으면 classpath 설정
+ * spring 디렉토리를 잡아주면 된다
+ */
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:/root-context.xml", "classpath:/mapper/*.xml", "classpath:/mybatis-config.xml"})
