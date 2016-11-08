@@ -10,8 +10,8 @@
 	
 	<select id="findOne"
 			resultType="com.tcp.pandora.entity.Date"
-			parameterType="map">
-		SELECT * FROM date WHERE id = #{id} AND couple_id = #{coupleId};
+			parameterType="String">
+		SELECT * FROM date WHERE id = #{id};
 	</select>
 	
 	<insert id="add" parameterType="com.tcp.pandora.entity.Date">
