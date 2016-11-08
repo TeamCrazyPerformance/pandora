@@ -33,7 +33,23 @@ public class DateDaoImplTest {
 		logger.info("-- Finish DateDaoImplTest -- ");
 	}
 	
-	public void add() {
+	@Test
+	public void deleteOne() {
+		List<Date> dates = this.dateDao.findAll();
+		logger.info("before delete all");
+		dates.stream().forEach(d -> {
+			logger.info(d.getId());
+			this.dateDao.deleteOne(d.getId());
+		});
+		
+		logger.info("after delete all");
+		List<Date> ds = this.dateDao.findAll();
+		ds.stream().forEach(d -> {
+			logger.info(d.getId());
+		});
+	}
+	
+	public void addAndFindOne() {
 		Date date = Date.of();
 		logger.info("added date id: " + date.getId());
 		this.dateDao.add(date);
@@ -41,12 +57,6 @@ public class DateDaoImplTest {
 		logger.info("finded date id: " + finded.getId());
 	}
 	
-	public void findOne() {
-		String id = "0123456789123";
-		Date finded = this.dateDao.findOne(id);
-		
-		logger.info(finded.getId());
-	}
 	
 	public void findAll() {
 		List<Date> dates = this.dateDao.findAll();
