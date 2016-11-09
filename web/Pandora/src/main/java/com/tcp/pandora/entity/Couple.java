@@ -1,11 +1,28 @@
 package com.tcp.pandora.entity;
 
+import java.time.LocalDate;
+import java.util.Random;
+
+import com.tcp.pandora.util.RandStringBuilder;
+
 public class Couple {
 	private String id = "";
-	private String date = "";
+	private String firstDay = "";
 	private int state = -1;
 	private String userEmail1 = "";
 	private String userEmail2 = "";
+	
+	public static Couple of() {
+		Couple c = new Couple();
+		c.setId(RandStringBuilder.create(13));
+		c.setFirstDay(LocalDate.now().toString());
+		Random r = new Random();
+		c.setState(r.nextInt() % 5);
+		c.setUserEmail1(RandStringBuilder.create("dddddd@naver.com"));
+		c.setUserEmail2(RandStringBuilder.create("dddddd@naver.com"));
+		
+		return c;
+	}
 	
 	public String getId() {
 		return id;
@@ -13,11 +30,11 @@ public class Couple {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getDate() {
-		return date;
+	public String getFirstDay() {
+		return firstDay;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setFirstDay(String firstDay) {
+		this.firstDay = firstDay;
 	}
 	public int getState() {
 		return state;
