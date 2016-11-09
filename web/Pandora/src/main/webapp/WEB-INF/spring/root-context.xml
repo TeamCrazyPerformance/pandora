@@ -32,4 +32,8 @@
 	<bean id="coupleDao" class="com.tcp.pandora.dao.impl.CoupleDaoImpl">
 		<property name="namespace" value="com.tcp.pandora.coupleMapper" />
 	</bean>
+	
+	<bean id="courseDao" class="com.tcp.pandora.dao.impl.CourseDaoImpl">
+		<property name="namespace" value="com.tcp.pandora.courseMapper" />
+	</bean>
 </beans>
