@@ -1,21 +1,37 @@
 package com.tcp.pandora.entity;
 
+import java.util.Random;
+
+import com.tcp.pandora.util.RandStringBuilder;
+
 public class Course {
 	private int nIndex = -1;
 	private String dateId = "";
 	private String coupleId = "";
-	private int order = -1;
+	private int seqNum = -1;
 	private String gps = "";
 	private String location = "";
 	private String contents = "";
 	private int score = -1;
 	private int price = -1;
 	private String mainPhoto = "";
-	private String photo = "";
+	private String photos = "";
 	
 	public static Course of() {
-		Course course = new Course();
-		return course;
+		Random r = new Random();
+		Course c = new Course();
+		c.setDateId(RandStringBuilder.create(13));
+		c.setCoupleId(RandStringBuilder.create(13));
+		c.setSeqNum(r.nextInt() % 5);
+		c.setGps(RandStringBuilder.create(5));
+		c.setLocation(RandStringBuilder.create(50));
+		c.setContents(RandStringBuilder.create(100));
+		c.setScore(r.nextInt() % 100);
+		c.setPrice(r.nextInt() % 1000000);
+		c.setMainPhoto(RandStringBuilder.create(20));
+		c.setPhotos(RandStringBuilder.create(20));
+		
+		return c;
 	}
 	
 	public int getnIndex() {
@@ -36,11 +52,11 @@ public class Course {
 	public void setCoupleId(String coupleId) {
 		this.coupleId = coupleId;
 	}
-	public int getOrder() {
-		return order;
+	public int getSeqNum() {
+		return seqNum;
 	}
-	public void setOrder(int order) {
-		this.order = order;
+	public void setSeqNum(int order) {
+		this.seqNum = order;
 	}
 	public String getGps() {
 		return gps;
@@ -78,10 +94,10 @@ public class Course {
 	public void setMainPhoto(String mainPhoto) {
 		this.mainPhoto = mainPhoto;
 	}
-	public String getPhoto() {
-		return photo;
+	public String getPhotos() {
+		return photos;
 	}
-	public void setPhoto(String photo) {
-		this.photo = photo;
+	public void setPhotos(String photo) {
+		this.photos = photo;
 	}
 }
