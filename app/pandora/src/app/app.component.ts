@@ -6,6 +6,7 @@ import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { Login } from '../pages/login/login';
 import { Signup } from '../pages/signup/signup';
+import { Home } from '../pages/home/home';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { Signup } from '../pages/signup/signup';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Signup;
+  rootPage: any = Home;
 
   pages: Array<{title: string, component: any}>;
 
