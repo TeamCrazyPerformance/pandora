@@ -14,28 +14,26 @@ page-home {
         ion-card {
             position: relative;
             text-align: center;
-            margin-top:0px;
-            margin-left:0px;
-            margin-right:0px;
-            width:100%;
+            margin-top: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+            width: 100%;
             margin-bottom: 6px;
-            
             img {
                 opacity: 0.8;
                 filter: blur(3px);
             }
             ion-icon {
                 font-size: 1.1em;
+            }
         }
-        }
-        
         .curtain {
             position: absolute;
-            width:100%;
+            width: 100%;
             background-color: #000;
-            color:#000;
-            top:0%;
-            height:100%;
+            color: #000;
+            top: 0%;
+            height: 100%;
             opacity: 0.3;
         }
         .card-title {
@@ -52,10 +50,8 @@ page-home {
             width: 100%;
             color: #fff;
         }
-        
         button {
-            background-color:$app-color;
-            
+            background-color: $app-color;
             ion-icon {
                 font-size: 3.0em;
             }
