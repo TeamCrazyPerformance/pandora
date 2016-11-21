@@ -3,27 +3,36 @@
         <ion-row class="logo">
             <ion-col></ion-col>
         </ion-row>
+        <!-- 입력창 -->
         <ion-row class="inputbox">
             <ion-col>
-                <ion-list sliding="false">
-
-                    <ion-item >
-                        <ion-input type="text" placeholder="Username" ></ion-input>
-                    </ion-item>
-
+                <ion-list no-lines>
                     <ion-item>
-                        <ion-input type="password" placeholder="Password"></ion-input>
+                        <ion-icon ios="ios-contact-outline" md="md-contact" class="icon"></ion-icon>
+                        <input type="text" placeholder="Username" class="input_box">
                     </ion-item>
-
+                    <ion-item>
+                        <ion-icon ios="ios-unlock-outline" md="md-unlock" class="icon"></ion-icon>
+                        <input type="text" placeholder="Password" class="input_box">
+                    </ion-item>
                 </ion-list>
-
             </ion-col>
         </ion-row>
+        <!-- 버튼영역 -->
         <ion-row class="buttonbox">
-            <ion-col></ion-col>
+            <ion-col>
+                <ion-list no-lines>
+                        <button ion-button color="#ffffff" round class="button" id="btn_login">LOGIN</button>
+                        <button ion-button id="btn_space"> OR </button>
+                        <button ion-button color="#ffffff" round class="button" id="btn_kakao">Log in with Kakao</button>
+                </ion-list>
+            </ion-col>
         </ion-row>
+        <!-- 회원가입 비밀번호 찾기 영역 -->
         <ion-row class="additional">
-            <ion-col></ion-col>
+            <ion-col width-33>Create an account</ion-col>
+            <ion-col width-33></ion-col>
+            <ion-col width-33>Forgot Password</ion-col>
         </ion-row>
     </ion-grid>
 </ion-content>
