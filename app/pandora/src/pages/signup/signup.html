@@ -1,20 +1,51 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Page One</ion-title>
-  </ion-navbar>
+<ion-header class="header">
+    <ion-navbar>
+        <ion-buttons start>
+            <button ion-button menuToggle>
+                <ion-icon name="arrow-round-back" class="nav_icon"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>
+            <p>Pandora</p>
+        </ion-title>
+    </ion-navbar>
 </ion-header>
-
 <ion-content padding>
-  <ion-grid>
+    <ion-grid>
         <ion-row class="photo">
-            <ion-icon name="camera" id="icon_camera"></ion-icon>
+            <ion-col>
+                <button ion-button icon-only clear id="btn_icon">
+                    <ion-icon name="camera" id="icon_camera"></ion-icon>
+                </button>
+            </ion-col>
         </ion-row>
         <ion-row class="inputbox">
+            <ion-col>
+                <ion-list no-lines>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Email Address" name="EmailAddress" class="input_box"></ion-input>
+                    </ion-item>
+                    <br>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Name" class="input_box" name="Name"></ion-input>
+                    </ion-item>
+                    <br>
+                    
+                    <ion-item>
+                        <ion-input type="password" placeholder="Password" name="Password" class="input_box"> </ion-input>
+                    </ion-item>
+                    <br>
+                    
+                    <ion-item>
+                        <ion-input type="text" placeholder="Phone Number" name="PhoneNumber" class="input_box"> </ion-input>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
         </ion-row>
         <ion-row class="buttonbox">
+            <ion-col>
+                <button ion-button round full class="button" id="btn_sign_up">Sign up</button>
+            </ion-col>
         </ion-row>
     </ion-grid>
 </ion-content>

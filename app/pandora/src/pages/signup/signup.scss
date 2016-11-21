@@ -1,21 +1,47 @@
 page-signup {
-    
+    $font-color: #a3a3a3;
+    $app-color: #50c188;
+    ion-title {
+        background-color: $app-color;
+    }
+    ion-title p {
+        color: #ffffff;
+    }
     .photo {
-        height:25vh;
+        height: 30vh;
+        width: 100%;
+        align-items: center;
+        padding-left: 80px;
     }
-    
     .inputbox {
-        height:40vh;
-        background-color: aquamarine;
+        height: 35vh;
+        border: 0px;
     }
-    
     .buttonbox {
-        height: 15vh;
-        background-color:black;
+        height: 25vh;
     }
-    
+    #btn_icon{
+     height:150px;
+        width: 150px;
+    }
     #icon_camera {
-        font-size: 60px;
+        font-size: 100px;
+        color: $app-color;
     }
-    
+    .input_box {
+        border-bottom: 1px solid $font-color;
+        font-size: 13px;
+        padding-left: 10px;
+    }
+    .toolbar-background {
+        background-color: $app-color;
+    }
+    #btn_sign_up {
+        background-color: $app-color;
+        margin-top: 20px;
+    }
+    .nav_icon {
+        color: #ffffff;
+        font-size: 30px;
+    }
 }
