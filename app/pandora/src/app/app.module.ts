@@ -6,6 +6,7 @@ import { Page2 } from '../pages/page2/page2';
 import { Login } from '../pages/login/login';
 import { Signup } from '../pages/signup/signup';
 import { Home } from '../pages/home/home';
+import { Detail } from '../pages/detail/detail';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { Home } from '../pages/home/home';
     Page2,
     Login,
     Signup,
-    Home
+    Home,
+    Detail
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -26,7 +28,8 @@ import { Home } from '../pages/home/home';
     Page2,
     Login,
     Signup,
-    Home
+    Home,
+    Detail
   ],
   providers: []
 })

@@ -1,0 +1,50 @@
+<ion-header class="header">
+    <ion-navbar>
+        <ion-title>
+            <p>Pandora</p>
+        </ion-title>
+
+        <ion-buttons start>
+            <button ion-button menuToggle>
+                <ion-icon name="arrow-round-back" class="nav_icon"></ion-icon>
+            </button>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+<div class="back">
+    <div class="map" id="map">
+
+    </div>
+    <div class="information">
+        <div class="title">
+            {{date.title}}
+        </div>
+        <div class="value">
+            <ion-grid>
+                <ion-row>
+                    <ion-col width-20 class="score">
+                        <ion-icon ios="ios-star-outline" md="md-star-outline"><div class="innerText">{{date.score}}</div></ion-icon>
+                    </ion-col>
+                    <ion-col width-30 class="price">
+                        <ion-icon ios="ios-card-outline" md="md-card"><div class="innerText">{{date.price}}</div></ion-icon>
+                    </ion-col>
+                    <ion-col width-50 class="location">
+                        <ion-icon ios="ios-bookmark-outline" md="md-bookmark"><div class="innerText">{{date.location}}</div></ion-icon>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+    </div>
+    <div class="course">
+        <ion-card *ngFor="let course of courses">
+        <img src={{course.img}} />
+        <div class="curtain"></div>
+        <div class="card-title">{{course.title}}</div>
+        </ion-card>
+    </div>
+</div>
+
+</ion-content>
