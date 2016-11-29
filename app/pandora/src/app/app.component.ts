@@ -7,6 +7,7 @@ import { Page2 } from '../pages/page2/page2';
 import { Login } from '../pages/login/login';
 import { Signup } from '../pages/signup/signup';
 import { Home } from '../pages/home/home';
+import { NewDate } from '../pages/newDate/newDate';
 import { Detail } from '../pages/detail/detail';
 import { Slide } from '../pages/slide/slide';
 
@@ -26,7 +27,8 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Page One', component: Page1 },
-      { title: 'Page Two', component: Page2 }
+      { title: 'Page Two', component: Page2 },
+        {title: 'New Date', component: NewDate}
     ];
 
   }

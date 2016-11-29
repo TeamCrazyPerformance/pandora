@@ -6,8 +6,10 @@ import { Page2 } from '../pages/page2/page2';
 import { Login } from '../pages/login/login';
 import { Signup } from '../pages/signup/signup';
 import { Home } from '../pages/home/home';
+import { NewDate } from '../pages/newDate/newDate';
 import { Detail } from '../pages/detail/detail';
 import { Slide } from '../pages/slide/slide';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { Slide } from '../pages/slide/slide';
     Signup,
     Home,
     Detail,
-    Slide
+    Slide,
+    NewDate
   ],
   imports: [
     IonicModule.forRoot(MyApp)
