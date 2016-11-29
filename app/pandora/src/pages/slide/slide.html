@@ -1,0 +1,56 @@
+<ion-header class="header">
+    <ion-navbar>
+        <ion-title>
+            <p>Pandora</p>
+        </ion-title>
+
+        <ion-buttons start>
+            <button ion-button menuToggle>
+                <ion-icon name="menu" class="nav_icon"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons end>
+            <button ion-button icon-only>
+                <ion-icon name='search' class="nav_icon"></ion-icon>
+            </button>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+<ion-slides pager>
+
+
+  <ion-slide *ngFor="let resource of resources">
+    <div class="thumnail" *ngIf="resource.flagThumnail">
+        <img src="{{resource.img}}" />
+        <div class="location">
+            {{resource.location}}
+            <div class="date">
+                {{resource.date}}
+            </div>
+        </div>
+        
+        <div class="title">
+            {{resource.title}}
+            <div class="information">
+                <div class="score info_box">
+                    {{resource.score}}/5.0
+                </div>
+                <div class="price info_box">
+                    {{resource.price}}원
+                </div>
+            </div>
+        </div>
+        <div class="curtain"></div>
+    </div>
+    <div class="normal" *ngIf="!resource.flagThumnail">
+        <img src="{{resource.img}}" />
+    </div>
+    
+  </ion-slide>
+
+</ion-slides>
+
+</ion-content>

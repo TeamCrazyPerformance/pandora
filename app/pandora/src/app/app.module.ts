@@ -7,6 +7,7 @@ import { Login } from '../pages/login/login';
 import { Signup } from '../pages/signup/signup';
 import { Home } from '../pages/home/home';
 import { Detail } from '../pages/detail/detail';
+import { Slide } from '../pages/slide/slide';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { Detail } from '../pages/detail/detail';
     Login,
     Signup,
     Home,
-    Detail
+    Detail,
+    Slide
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -29,7 +31,8 @@ import { Detail } from '../pages/detail/detail';
     Login,
     Signup,
     Home,
-    Detail
+    Detail,
+    Slide
   ],
   providers: []
 })

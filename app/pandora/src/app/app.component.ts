@@ -8,7 +8,7 @@ import { Login } from '../pages/login/login';
 import { Signup } from '../pages/signup/signup';
 import { Home } from '../pages/home/home';
 import { Detail } from '../pages/detail/detail';
-
+import { Slide } from '../pages/slide/slide';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,7 +16,7 @@ import { Detail } from '../pages/detail/detail';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Detail;
+  rootPage: any = Slide;
 
   pages: Array<{title: string, component: any}>;
 
