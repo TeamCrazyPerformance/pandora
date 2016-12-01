@@ -7,9 +7,25 @@ import { List } from 'ionic-angular';
   selector: 'page-login',
   templateUrl: 'login.html'
 })
+
 export class Login {
-    
+  KakaoTalk:any;
   constructor(public navCtrl: NavController) {
+      
     
+  }
+    
+  doLogin(){
+      this.KakaoTalk = (<any>window).KakaoTalk;
+      this.KakaoTalk.login(
+        function (result) {
+            console.log('Successful login!');
+            console.log(result);
+        },
+        function (message) {
+            console.log('Error logging in');
+            console.log(message);
+        }
+      );
   }
 }
