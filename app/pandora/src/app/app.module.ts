@@ -35,7 +35,8 @@ import { Slide } from '../pages/slide/slide';
     Signup,
     Home,
     Detail,
-    Slide
+    Slide,
+    NewDate
   ],
   providers: []
 })
