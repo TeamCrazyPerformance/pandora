@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { NavController, NavParams } from 'ionic-angular';
+import { Slide } from '../slide/slide';
 
 @Component({
   selector: 'page-detail',
@@ -8,10 +9,11 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class Detail {
     local: Storage;
-    date : {title : string, price: number, location: string, score: number};
-    courses : Array<{title:string, img:string}>;
+    date : {index : number, title : string, price: number, location: string, score: number};
+    courses : Array<{index : number, title:string, img:string}>;
     constructor(public navCtrl: NavController, public navParams: NavParams) {
         this.date = {
+            index : null,
             title: '200일 기념 서촌 탐방기',
             price: 480000,
             location: '홍대',
@@ -19,26 +21,32 @@ export class Detail {
         };
         this.courses = [];
         this.courses.push({
+            index : 1,
             title:'제비다방',
             img:'https://s3-ap-northeast-1.amazonaws.com/wisdomenews/1920x1080.90.205953-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%83%E1%85%B2%E1%84%89%E1%85%B3+%E1%84%8E%E1%85%AC%E1%84%8B%E1%85%B2%E1%84%8C%E1%85%A5%E1%86%BC.jpg'
         });
         this.courses.push({
+            index : 2,
             title:'누리네집룰루',
             img:'https://s3-ap-northeast-1.amazonaws.com/wisdomenews/1920x1080.90.205953-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%83%E1%85%B2%E1%84%89%E1%85%B3+%E1%84%8E%E1%85%AC%E1%84%8B%E1%85%B2%E1%84%8C%E1%85%A5%E1%86%BC.jpg'
         });
         this.courses.push({
+            index : 3,
             title:'꺄르륵꺄르륵꺄르륵',
             img:'https://s3-ap-northeast-1.amazonaws.com/wisdomenews/1920x1080.90.205953-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%83%E1%85%B2%E1%84%89%E1%85%B3+%E1%84%8E%E1%85%AC%E1%84%8B%E1%85%B2%E1%84%8C%E1%85%A5%E1%86%BC.jpg'
         });
         this.courses.push({
+            index : 4,
             title:'꺄르륵꺄르륵꺄르륵',
             img:'https://s3-ap-northeast-1.amazonaws.com/wisdomenews/1920x1080.90.205953-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%83%E1%85%B2%E1%84%89%E1%85%B3+%E1%84%8E%E1%85%AC%E1%84%8B%E1%85%B2%E1%84%8C%E1%85%A5%E1%86%BC.jpg'
         });
         this.courses.push({
+            index : 5,
             title:'꺄르륵꺄르륵꺄르륵',
             img:'https://s3-ap-northeast-1.amazonaws.com/wisdomenews/1920x1080.90.205953-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%83%E1%85%B2%E1%84%89%E1%85%B3+%E1%84%8E%E1%85%AC%E1%84%8B%E1%85%B2%E1%84%8C%E1%85%A5%E1%86%BC.jpg'
         });
         this.courses.push({
+            index : 6,
             title:'꺄르륵꺄르륵꺄르륵',
             img:'https://s3-ap-northeast-1.amazonaws.com/wisdomenews/1920x1080.90.205953-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%83%E1%85%B2%E1%84%89%E1%85%B3+%E1%84%8E%E1%85%AC%E1%84%8B%E1%85%B2%E1%84%8C%E1%85%A5%E1%86%BC.jpg'
         });
@@ -49,6 +57,9 @@ export class Detail {
     }
     ionViewWillEnter() {
         this.drawMap();
+        this.date.index = this.navParams.get("index");
+        
+        console.dir(this.date);
     }
     
     drawMap(){
@@ -70,5 +81,9 @@ export class Detail {
 
         // 마커가 지도 위에 표시되도록 설정합니다
         marker.setMap(map);
+    }
+    
+    openAlbum(index){
+        this.navCtrl.push(Slide,{"index":index});
     }
 }
