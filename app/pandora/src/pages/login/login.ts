@@ -56,8 +56,11 @@ export class Login {
         this.http.post('https://app-pandora.azurewebsites.net/pandora/api/users/v1.0/login',JSON.stringify(this.user),options).subscribe(res => {
                 if(res.json().code == 200){
                     this.http.get('https://app-pandora.azurewebsites.net/pandora/api/users/v1.0/'+this.user.email+"/couples").subscribe(res => {
-                        console.log(res.json()[0].id);
-                        this.navCtrl.push(Home,{"user":this.user, "couple_id":res.json()[0].id});
+                        var id = 0;
+                        if (res.json()[0] != undefined) {
+                            id = res.json()[0].id;
+                        }
+                        this.navCtrl.push(Home,{"user":this.user, "couple_id":id});
                     }), (err) => {
                         alert("fail");
                     }
