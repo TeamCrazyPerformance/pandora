@@ -9,7 +9,19 @@ import { LoadingController } from 'ionic-angular';
 })
 export class NewDate {
     
+    course : {title : string, review : string, location : string, pictures : Array<string>, score : number};
+    date : {review : string, title : string, courses : Array<Object>};
+    
     constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController) {
+        let date2 = this.course;
+        
+        date2 = {
+            title : "test",
+            review : null,
+            location : null,
+            pictures : null,
+            score : 0
+        };
     }
     
     backPage(){
