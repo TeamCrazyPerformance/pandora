@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import { NewDate } from '../newDate/newDate';
 import { Detail } from '../detail/detail';
+import { Http, Headers, RequestOptions } from '@angular/http';
 
 @Component({
   selector: 'page-home',
