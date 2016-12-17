@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 import { List } from 'ionic-angular';
+import { Home } from '../home/home';
 
 @Component({
   selector: 'page-login',
@@ -15,7 +16,7 @@ export class Login {
     
   }
     
-  doLogin(){
+  doKakaoLogin(){
       this.KakaoTalk = (<any>window).KakaoTalk;
       this.KakaoTalk.login(
         function (result) {
@@ -28,4 +29,9 @@ export class Login {
         }
       );
   }
+    
+    doLogin(){
+        
+        this.navCtrl.push(Home);
+    }
 }

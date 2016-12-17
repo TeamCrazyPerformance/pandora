@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
-import { List } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 
 @Component({
   selector: 'page-newDate',
@@ -9,4 +9,10 @@ import { List } from 'ionic-angular';
 })
 export class NewDate {
     
+    constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController) {
+    }
+    
+    backPage(){
+        this.navCtrl.pop();
+    }
 }

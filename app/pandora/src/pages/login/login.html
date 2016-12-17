@@ -22,9 +22,9 @@
         <ion-row class="buttonbox">
             <ion-col>
                 <ion-list no-lines>
-                        <button ion-button color="#ffffff" round class="button" id="btn_login">LOGIN</button>
+                        <button ion-button color="#ffffff" round class="button" id="btn_login" (click)=doLogin()>LOGIN</button>
                         <button ion-button id="btn_space"> OR </button>
-                        <button ion-button color="#ffffff" round class="button" id="btn_kakao" (click)=doLogin()>Log in with Kakao</button>
+                        <button ion-button color="#ffffff" round class="button" id="btn_kakao" (click)=doKakaoLogin()>Log in with Kakao</button>
                 </ion-list>
             </ion-col>
         </ion-row>
