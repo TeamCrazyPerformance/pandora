@@ -51,4 +51,12 @@ page-newDate {
         color: $app-color;
         font-size: 13px;
     }
+    .add_btn{
+        background-color: $app-color;
+        width: 100%;
+        align-items: center;
+        ion-icon{
+            font-size:3.0em;
+        }
+    }
 }

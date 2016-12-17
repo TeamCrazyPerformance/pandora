@@ -9,50 +9,48 @@
             </button>
         </ion-buttons>
         <ion-buttons end>
-            <button ion-button clear class="nav_btn">Save</button>
+            <button ion-button clear type="submit" class="nav_btn">Save</button>
         </ion-buttons>
     </ion-navbar>
 </ion-header>
 <ion-content class="card-background">
-    <ion-card id="date-title">
-        <ion-input class="date-title" type="text" placeholder="데이트 제목을 입력해 주세요."></ion-input>
-    </ion-card>
-    <ion-card class="date-course">
-        <ion-card-content class="date-course-content">
-<!--
-            <div class="date-content">
-               <ion-textarea [(ngModel)]="date2.review" (ngModelChange)="date2.review=$event"></ion-textarea>
-                
-            </div>
--->
-            <ion-row>
-                <ion-col><img class="date_pic" src="https://s3-ap-northeast-1.amazonaws.com/wisdomenews/1920x1080.90.205953-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%83%E1%85%B2%E1%84%89%E1%85%B3+%E1%84%8E%E1%85%AC%E1%84%8B%E1%85%B2%E1%84%8C%E1%85%A5%E1%86%BC.jpg">
-                </ion-col>
-            </ion-row> <img class="map_img" src="assets/img/map.png">
-            <button class="date_info" ion-button clear icon-only>
-                <ion-icon name="ios-camera-outline"></ion-icon>
-            </button>
-            <button class="date_info" ion-button clear icon-only>
-                <ion-icon name="ios-pin-outline"></ion-icon>
-            </button>
-            <button class="date_info" ion-button clear icon-only>
-                <div>
-                    <ion-icon name="ios-pricetag-outline"> </ion-icon>
+    <form (ngSubmit)="newDateForm()">
+        <ion-card id="date-title">
+            <ion-input class="date-title" type="text" [(ngModel)]="date2.title" name="title" placeholder="데이트 제목을 입력해 주세요."></ion-input>
+        </ion-card>
+        <ion-card class="date-course">
+            <ion-card-content class="date-course-content">
+                <div class="date-content">
+                    <ion-textarea [(ngModel)]="date2.review" name="review"></ion-textarea>
                 </div>
-                <div>11,000원</div>
-            </button>
-            <button class="date_info" ion-button clear icon-only>
-                <div>
-                    <ion-icon name="ios-star-outline"></ion-icon>
-                </div>
-                <div>3.5</div>
-            </button>
-        </ion-card-content>
-    </ion-card>
-    <ion-card class="date-course">
-        <ion-card-content class="date-course-content">
-            <ion-input type="text" placeholder="Start typing..."> </ion-input>
+                <ion-row>
+                    <ion-col><img class="date_pic" src="https://s3-ap-northeast-1.amazonaws.com/wisdomenews/1920x1080.90.205953-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%83%E1%85%B2%E1%84%89%E1%85%B3+%E1%84%8E%E1%85%AC%E1%84%8B%E1%85%B2%E1%84%8C%E1%85%A5%E1%86%BC.jpg"> </ion-col>
+                </ion-row> <img class="map_img" src="assets/img/map.png">
+                <button class="date_info" ion-button clear icon-only>
+                    <ion-icon name="ios-camera-outline"></ion-icon>
+                </button>
+                <button class="date_info" ion-button clear icon-only>
+                    <ion-icon name="ios-pin-outline"></ion-icon>
+                </button>
+                <button class="date_info" ion-button clear icon-only>
+                    <div>
+                        <ion-icon name="ios-pricetag-outline"> </ion-icon>
+                    </div>
+                    <div>11,000원</div>
+                </button>
+                <button class="date_info" ion-button clear icon-only type="ngSubmit">
+                    <div>
+                        <ion-icon name="ios-star-outline"></ion-icon>
+                    </div>
+                    <div>3.5</div>
+                </button>
+            </ion-card-content>
+        </ion-card>
+        
+        <button ion-fab mini class="add_btn">
+            <ion-icon name="add">
+            </ion-icon>
+        </button>
             
-        </ion-card-content>
-    </ion-card>
+    </form>
 </ion-content>
