@@ -17,7 +17,7 @@ import { Slide } from '../pages/slide/slide';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Login;
+  rootPage: any = NewDate;
 
   pages: Array<{title: string, component: any}>;
 

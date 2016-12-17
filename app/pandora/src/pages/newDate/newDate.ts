@@ -12,6 +12,7 @@ export class NewDate {
     public base64Image : string;
     test : {count : number};
     course : {title : string, review : string, location : string, pictures : Array<string>, score : number};
+
     date : {review : string, title : string, courses : Array<Object>};
     
     constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController) {
@@ -20,17 +21,12 @@ export class NewDate {
             count : 0
         };
         
-        let date2 = this.course;
+        var date2 = this.course;
         
-        date2 = {
-            title : "test",
-            review : null,
-            location : null,
-            pictures : null,
-            score : 0
-        };
     }
-    
+    newDateForm(){
+        console.log(this.course);
+    }
     backPage(){
         this.navCtrl.pop();
     }
