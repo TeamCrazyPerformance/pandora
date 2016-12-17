@@ -9,11 +9,11 @@
                 <ion-list no-lines>
                     <ion-item>
                         <ion-icon ios="ios-contact-outline" md="md-contact" class="icon"></ion-icon>
-                        <input type="text" placeholder="Username" class="input_box">
+                        <input type="text" placeholder="Username" class="input_box" [(ngModel)]="user.email" (ngModelChange)="user.email=$event">
                     </ion-item>
                     <ion-item>
                         <ion-icon ios="ios-unlock-outline" md="md-unlock" class="icon"></ion-icon>
-                        <input type="text" placeholder="Password" class="input_box">
+                        <input type="text" placeholder="Password" class="input_box" [(ngModel)]="user.password" (ngModelChange)="user.password=$event">
                     </ion-item>
                 </ion-list>
             </ion-col>
@@ -30,7 +30,7 @@
         </ion-row>
         <!-- 회원가입 비밀번호 찾기 영역 -->
         <ion-row class="additional">
-            <ion-col width-33>Create an account</ion-col>
+            <ion-col width-33 (click)=doSignUp()>Create an account</ion-col>
             <ion-col width-33></ion-col>
             <ion-col width-33>Forgot Password</ion-col>
         </ion-row>

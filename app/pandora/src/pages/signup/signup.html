@@ -23,28 +23,28 @@
             <ion-col>
                 <ion-list no-lines>
                     <ion-item>
-                        <ion-input type="text" placeholder="Email Address" name="EmailAddress" class="input_box"></ion-input>
+                        <ion-input type="text" placeholder="Email Address" name="EmailAddress" class="input_box" [(ngModel)]="user.email" (ngModelChange)="user.email=$event"></ion-input>
                     </ion-item>
                     <br>
                     <ion-item>
-                        <ion-input type="text" placeholder="Name" class="input_box" name="Name"></ion-input>
-                    </ion-item>
-                    <br>
-                    
-                    <ion-item>
-                        <ion-input type="password" placeholder="Password" name="Password" class="input_box"> </ion-input>
+                        <ion-input type="text" placeholder="Name" class="input_box" name="Name" [(ngModel)]="user.name" (ngModelChange)="user.name=$event"></ion-input>
                     </ion-item>
                     <br>
                     
                     <ion-item>
-                        <ion-input type="text" placeholder="Phone Number" name="PhoneNumber" class="input_box"> </ion-input>
+                        <ion-input type="password" placeholder="Password" name="Password" class="input_box" [(ngModel)]="user.password" (ngModelChange)="user.password=$event"> </ion-input>
+                    </ion-item>
+                    <br>
+                    
+                    <ion-item>
+                        <ion-input type="text" placeholder="Phone Number" name="PhoneNumber" class="input_box" [(ngModel)]="user.phoneNum" (ngModelChange)="user.phoneNum=$event"> </ion-input>
                     </ion-item>
                 </ion-list>
             </ion-col>
         </ion-row>
         <ion-row class="buttonbox">
             <ion-col>
-                <button ion-button round full class="button" id="btn_sign_up">Sign up</button>
+                <button ion-button round full class="button" id="btn_sign_up" (click)=doSignup()>Sign up</button>
             </ion-col>
         </ion-row>
     </ion-grid>
