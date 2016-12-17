@@ -3,6 +3,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { List } from 'ionic-angular';
 import { Home } from '../home/home';
+import { HTTP } from 'ionic-native';
 
 @Component({
   selector: 'page-login',
@@ -32,6 +33,22 @@ export class Login {
     
     doLogin(){
         
-        this.navCtrl.push(Home);
+    HTTP.post('https://github.com/Duck528/pandora', {}, {})
+        .then(data => {
+
+            console.log(data.status);
+            console.log(data.data); // data received by server
+            console.log(data.headers);
+
+    });
+    .catch(error => {
+
+        console.log(error.status);
+        console.log(error.error); // error message as string
+        console.log(error.headers);
+
+    });
+        
+        //this.navCtrl.push(Home);
     }
 }
