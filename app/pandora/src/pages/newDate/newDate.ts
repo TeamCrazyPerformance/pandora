@@ -11,7 +11,7 @@ import { MapList } from '../mapList/mapList';
 export class NewDate {
     public base64Image : string;
     test : {count : number};
-    course : {title : string, review : string, location : string, pictures : Array<string>, score : number, price : number, locationObj : Object};
+    course : {title : string, review : string, location : string, pictures : Array<string>, score : number, price : number, locationObj : any};
 
     date : {review : string, title : string, courses : Array<Object>};
     count : number;
@@ -32,6 +32,7 @@ export class NewDate {
         (<any>window).showMapList = this.showMapList;
         
     }
+    
     
     initCourse(){
         this.course = {
@@ -162,22 +163,18 @@ export class NewDate {
     }
     
     searchLocation(course){
-        var data;
+        let daum = (<any>window).daum;
         
-        var daum = (<any>window).daum;
-        
-        var container = document.getElementById('insertMap'); //지도를 담을 영역의 DOM 레퍼런스
-        var options = { //지도를 생성할 때 필요한 기본 옵션
+        let container = document.getElementById('insertMap'); //지도를 담을 영역의 DOM 레퍼런스
+        let options = { //지도를 생성할 때 필요한 기본 옵션
             center: new daum.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
             level: 4 //지도의 레벨(확대, 축소 정도)
         };
-        var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
+        let map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
         container.style.height = "200px";
-        var places = new daum.maps.services.Places();
-        
-        var places = new daum.maps.services.Places();
+        let places = new daum.maps.services.Places();
 
-        var callback = function(status, result) {
+        let callback = function(status, result) {
         if (status === daum.maps.services.Status.OK) {
             (<any>window).locationArr = result;
         }
@@ -187,6 +184,7 @@ export class NewDate {
         this.shareMap = map;
         this.shareDaum = daum;
         this.busyWating(course);
+        
     }
     
     busyWating(course){
@@ -212,16 +210,24 @@ export class NewDate {
         let modal = this.modalCtrl.create(MapList,this.navParams.data);
         modal.onDidDismiss(data => {
             course.locationObj = data;
-            this.shareMap.setCenter(new this.shareDaum.maps.LatLng(data.latitude, data.longitude));
-            var markerPosition  = new this.shareDaum.maps.LatLng(data.latitude, data.longitude); 
-
+            
+            let container = document.getElementById('insertMap'); //지도를 담을 영역의 DOM 레퍼런스
+            let options = { //지도를 생성할 때 필요한 기본 옵션
+                center: new this.shareDaum.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+                level: 4 //지도의 레벨(확대, 축소 정도)
+            };
+            let map = new this.shareDaum.maps.Map(container, options);
             // 마커를 생성합니다
+            
+            map.setCenter(new this.shareDaum.maps.LatLng(data.latitude, data.longitude));
+            var markerPosition  = new this.shareDaum.maps.LatLng(data.latitude, data.longitude); 
             var marker = new this.shareDaum.maps.Marker({
                 position: markerPosition
             });
 
             // 마커가 지도 위에 표시되도록 설정합니다
-            marker.setMap(this.shareMap);
+            marker.setMap(map);
+            console.dir(marker);
             
             });
         modal.present();

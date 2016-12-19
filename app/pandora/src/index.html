@@ -24,7 +24,7 @@
   </script>-->
 
   <link href="build/main.css" rel="stylesheet">
-  <script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=3e5d1fe241a6bc5deca8587eee1ed0c6"></script>
+  <script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
     
 
 </head>
@@ -32,18 +32,17 @@
 
   <!-- Ionic's root component and where the app will load -->
   <ion-app></ion-app>
-
+  <script>
+        window.daum = daum;
+      
+  </script>
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
 
   <!-- The bundle js is generated during the build process -->
   <script src="build/main.js"></script>
   
-  <script>
-        
-        window.daum = daum;
-      
-</script>
+  
 
 </body>
 </html>

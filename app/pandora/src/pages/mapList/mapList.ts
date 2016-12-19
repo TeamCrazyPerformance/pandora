@@ -25,10 +25,12 @@ export class MapList{
     }
     
     clickList(place){
-        this.dismiss(place);
+        this.place = place;
+        this.dismiss();
     }
     
-    dismiss(place) {
-        this.viewCtrl.dismiss(place);
+    dismiss() {
+        let data = this.place;
+        this.viewCtrl.dismiss(data);
     }
 }

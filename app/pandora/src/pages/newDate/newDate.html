@@ -97,7 +97,7 @@
             <button class="date_info" ion-button clear icon-only (click)="insertLocation(course)" >
                 <ion-icon name="ios-pin-outline"></ion-icon>{{course.locationObj.address}}
             </button>
-            <button class="date_info" ion-button clear icon-only [ngClass] = "course.index"(click)="insertPrice(course)"> 
+            <button class="date_info" ion-button clear icon-only (click)="insertPrice(course)"> 
                 <div>
                     <ion-icon name="ios-pricetag-outline"> </ion-icon>{{course.price}}
                 </div>
