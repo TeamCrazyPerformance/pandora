@@ -11,6 +11,7 @@ import { NewDate } from '../pages/newDate/newDate';
 import { Detail } from '../pages/detail/detail';
 import { Slide } from '../pages/slide/slide';
 import { Invite } from '../pages/invite/invite';
+import { MapList } from '../pages/mapList/mapList';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +19,7 @@ import { Invite } from '../pages/invite/invite';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Login;
+  rootPage: any = NewDate;
 
   pages: Array<{title: string, component: any}>;
 

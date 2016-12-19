@@ -10,6 +10,7 @@ import { NewDate } from '../pages/newDate/newDate';
 import { Detail } from '../pages/detail/detail';
 import { Slide } from '../pages/slide/slide';
 import { Invite } from '../pages/invite/invite';
+import { MapList} from '../pages/mapList/mapList';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { Invite } from '../pages/invite/invite';
     Detail,
     Slide,
     NewDate,
-    Invite
+    Invite,
+    MapList
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -39,7 +41,8 @@ import { Invite } from '../pages/invite/invite';
     Detail,
     Slide,
     NewDate,
-    Invite
+    Invite,
+    MapList
   ],
   providers: []
 })

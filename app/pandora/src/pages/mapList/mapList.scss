@@ -1,0 +1,38 @@
+page-invite {
+    $font-color: #a3a3a3;
+    $app-color: #50c188;
+    
+    ion-header {
+        background-color: $app-color;
+        color:#ffffff;
+    }
+    ion-title {
+        background-color: $app-color;
+        color: #ffffff;
+        
+    }
+    ion-title p {
+        color:#ffffff;
+    }
+    ion-buttons {
+        color:#ffffff;
+        span {
+            color:#ffffff;
+        }
+    }
+    
+    .container {
+        padding-top: 200px;
+        
+    }
+    .btn {
+        margin-top: 30px;
+    }
+    
+    .div-btn {
+        align-content: center;
+        text-align: center;
+    }
+    
+    
+}
