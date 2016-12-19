@@ -156,6 +156,11 @@ export class Home {
     }
 
     inviteReject(){
+        var headers= new Headers();
+        //headers.append('Content-Type', 'application/json');
+        var options = new RequestOptions({headers: headers});
+        var url = 'https://app-pandora.azurewebsites.net/pandora/api/users/v1.0/';
         
+        this.http.delete(url+this.navParams.get("relation").userEmail2+'/couples/'+this.navParams.get("relation").id,options).subscribe(res => {console.log(res.json())}, (err) =>{console.log(err)});
     }
 }
