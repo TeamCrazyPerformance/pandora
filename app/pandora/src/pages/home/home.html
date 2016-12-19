@@ -39,6 +39,18 @@
         </div>
     </ion-card>
     
+    <ion-card *ngIf="state.wait">
+        <div>아직 연인이 수락하지 않았어요.</div>
+    </ion-card>
+    
+    <ion-card *ngIf="state.accept">
+        <ion-card-header>{{request.from}}님이 연인이 맞나요?</ion-card-header>
+        <ion-card-content>
+            <button ion-button outline class="accept-btn" (click)=inviteAccept()>수락</button>
+            <button ion-button outline class="accept-btn" (click)=inviteReject()>거절</button>
+        </ion-card-content>
+    </ion-card>
+    
     <ion-fab right bottom (click)=createNewDate()>
     <button ion-fab><ion-icon name="add"></ion-icon></button>
   </ion-fab>
