@@ -16,9 +16,11 @@ export class Home {
 //  icons: string[];
 //  items: Array<{title: string, note: string, icon: string}>;
 
+    request : {from : string, to : string};
+    respond : {from : string, to : string}
     state : {solo : number, wait : number, accept : number};
     dates: Array<{index : number,title: string, price: number, location: string, image: string}>;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http : Http, public loadingCtrl: LoadingController, public modalCtrl: ModalController) {
       
       this.state = {
           solo : 0,
@@ -26,6 +28,10 @@ export class Home {
           accept : 0
       };
       
+      this.request={
+          from : '',
+          to : ''
+      }
       
     // If we navigated to this page, we will have an item available as a nav param
 //    this.selectedItem = navParams.get('item');
@@ -66,9 +72,13 @@ export class Home {
                 if (this.navParams.get("relation").userEmail1 == this.navParams.get("user").email) {
                     // 내가 보낸 요청
                     this.state.wait = 1;
+                    this.request.to=this.navParams.get("relation").userEmail2;
                 } else {
                     // 내가 받은 요청
                     this.state.accept = 1;
+                    this.request.from=this.navParams.get("relation").userEmail1;
+                    
+                    console.log(this.navParams.get("relation").userEmail2+'/couples/'+this.navParams.get("relation").id);
                 }
                 console.dir(this.state);
             }
@@ -132,5 +142,20 @@ export class Home {
     invitePartner(){
         let modal = this.modalCtrl.create(Invite,this.navParams.data);
         modal.present();
+    }
+
+    inviteAccept(){
+        console.log("inviteAccept");
+        
+        var headers= new Headers();
+        //headers.append('Content-Type', 'application/json');
+        var options = new RequestOptions({headers: headers});
+        var url = 'https://app-pandora.azurewebsites.net/pandora/api/users/v1.0/';
+        
+        this.http.put(url+this.navParams.get("relation").userEmail2+'/couples/'+this.navParams.get("relation").id,{},options).subscribe(res => {console.log(res.json())}, (err) =>{console.log(err)});
+    }
+
+    inviteReject(){
+        
     }
 }
