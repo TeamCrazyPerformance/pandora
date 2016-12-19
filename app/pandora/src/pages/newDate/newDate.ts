@@ -15,6 +15,8 @@ export class NewDate {
 
     date : {review : string, title : string, courses : Array<Object>};
     
+    courses : Array<Object>;
+    
     constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController) {
         
         this.test = {
@@ -22,10 +24,17 @@ export class NewDate {
         };
         
         var date2 = this.course;
+        this.courses = [];
         
     }
     newDateForm(){
-        console.log(this.course);
+        
+        //마지막 카드에서 데이터 가져오는거 필요함
+        //회원가입 부분 참고해
+        
+        this.courses.push({
+            title:"hi"
+        });
     }
     backPage(){
         this.navCtrl.pop();
