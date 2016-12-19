@@ -18,7 +18,7 @@ import { Invite } from '../pages/invite/invite';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = NewDate;
+  rootPage: any = Login;
 
   pages: Array<{title: string, component: any}>;
 

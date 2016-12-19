@@ -70,7 +70,7 @@ export class Login {
                         if (res.json()[0] != undefined) {
                             id = res.json()[0].id;
                         }
-                        this.navCtrl.push(Home,{"user":this.user, "couple_id":id});
+                        this.navCtrl.push(Home,{"user":this.user, "couple_id":id,"relation":res.json()[0]});
                     }), (err) => {
                         alert("fail");
                     }

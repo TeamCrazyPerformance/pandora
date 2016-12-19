@@ -16,12 +16,14 @@ export class Home {
 //  icons: string[];
 //  items: Array<{title: string, note: string, icon: string}>;
 
-    state : {solo : number};
+    state : {solo : number, wait : number, accept : number};
     dates: Array<{index : number,title: string, price: number, location: string, image: string}>;
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public modalCtrl: ModalController) {
       
       this.state = {
-          solo : 0
+          solo : 0,
+          wait : 0,
+          accept : 0
       };
       
       
@@ -54,13 +56,25 @@ export class Home {
     
     ionViewWillEnter() {
         this.presentLoading();
-        console.dir(this.navParams.get("couple_id"));
         
-//        if (this.navParams.get("couple_id") != 0 ) {
-//            this.loadDate();
-//        }
+        if (this.navParams.get("couple_id") != 0 && this.navParams.get("relation").state != 0 ) {
+            this.loadDate();
+        } else {
+            if (this.navParams.get("couple_id") == 0){
+                this.state.solo = 1;
+            } else {
+                if (this.navParams.get("relation").userEmail1 == this.navParams.get("user").email) {
+                    // 내가 보낸 요청
+                    this.state.wait = 1;
+                } else {
+                    // 내가 받은 요청
+                    this.state.accept = 1;
+                }
+                console.dir(this.state);
+            }
+        }
         
-        this.state.solo = 1;
+        
         
         
         
@@ -116,7 +130,7 @@ export class Home {
     }
     
     invitePartner(){
-        let modal = this.modalCtrl.create(Invite);
+        let modal = this.modalCtrl.create(Invite,this.navParams.data);
         modal.present();
     }
 }

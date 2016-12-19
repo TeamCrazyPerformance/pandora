@@ -124,7 +124,7 @@ export class Invite {
             
             this.http.post('https://app-pandora.azurewebsites.net/pandora/api/users/v1.0/'+this.params.get("user").email+"/couples/"+this.partner.phoneNum,{},options).subscribe(
                 res => {
-                    console.log(res.json()); 
+                    this.navCtrl.setRoot(Home,this.params.data); 
                 }, (err) => {
                     console.log(err);
             });
