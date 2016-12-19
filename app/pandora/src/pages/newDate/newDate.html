@@ -9,16 +9,18 @@
             </button>
         </ion-buttons>
         <ion-buttons end>
-            <button ion-button clear type="submit" class="nav_btn">Save</button>
+            <button ion-button clear type="submit" class="nav_btn" (click)="saveData()">Save</button>
         </ion-buttons>
     </ion-navbar>
 </ion-header>
 <ion-content class="card-background">
     <ion-card id="date-title">
-        <ion-input class="date-title" type="text" placeholder="데이트 제목을 입력해 주세요."></ion-input>
+        <ion-input [(ngModel)] = "courses.title" (ngModelChange)="courses.title" class="date-title" type="text" placeholder="데이트 제목을 입력해 주세요."></ion-input>
     </ion-card>
     <ion-card *ngFor="let course of courses" class="date-course">
+       
         <ion-card-content class="date-course-content">
+           <ion-input [(ngModel)] = "course.title" (ngModelChange)="course.title" class="date-title" type="text" placeholder="코스 제목을 입력해 주세요."></ion-input>
             <!--
             <div class="date-content">
                <ion-textarea [(ngModel)]="date2.review" (ngModelChange)="date2.review=$event"></ion-textarea>
@@ -33,12 +35,8 @@
                 <ion-col><img class="date_pic" [(ngModel)]="base64Image" [src]="base64Image" *ngIf="base64Image" (click)=openPicture()>
                 </ion-col>
 -->
-                <ion-col>
-                        
-                        <button ion-button class="date_pic" outline>
-                        <ion-icon name="add"> </ion-icon>
-                    
-                    </button>
+                <ion-col *ngFor="let picture of course.pictures">
+                    <img [src]="picture.photo">
                 </ion-col>
             </ion-row>
             <button class="date_info" ion-button clear icon-only>
@@ -52,7 +50,7 @@
                     <ion-icon name="ios-pricetag-outline"> </ion-icon>{{course.price}}
                 </div>
             </button>
-            <button class="date_info" ion-button clear icon-only (click)="insertPrice(course)">
+            <button class="date_info" ion-button clear icon-only (click)="insertScore(course)">
                 <div>
                     <ion-icon name="ios-star-outline"></ion-icon>{{course.score}}
                 </div>
@@ -61,7 +59,9 @@
         </ion-card-content>
     </ion-card>
     <ion-card class="date-course">
+       
         <ion-card-content class="date-course-content">
+           <ion-input [(ngModel)] = "course.title" (ngModelChange)="course.title" class="date-title" type="text" placeholder="코스 제목을 입력해 주세요."></ion-input>
             <!--
             <div class="date-content">
                <ion-textarea [(ngModel)]="date2.review" (ngModelChange)="date2.review=$event"></ion-textarea>
@@ -77,9 +77,12 @@
                 </ion-col>
     -->
                 <ion-col>
-                    <button ion-button class="date_pic" outline>
+                    <button ion-button class="date_pic" outline (click) = "openPicture(course)">
                         <ion-icon name="add"> </ion-icon>
                     </button>
+                </ion-col>
+                <ion-col *ngFor="let picture of course.pictures">
+                    <img [src]="picture.photo">
                 </ion-col>
             </ion-row>
             
