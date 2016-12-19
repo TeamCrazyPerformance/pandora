@@ -19,6 +19,6 @@
     <ion-input type="text" [(ngModel)] = "partner.phoneNum" (ngModelChange)="partner.phoneNum=$event" ></ion-input>
   </ion-item>
   <div class="div-btn">
-      <button ion-button round class="btn" (click)=invitePartner()>초대하기</button>
+      <button ion-button round class="btn" (click)=invitePartner()>{{state.buttonTitle}}</button>
   </div>
 </ion-content>

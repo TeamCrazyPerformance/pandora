@@ -1,11 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { List } from 'ionic-angular';
 import { Home } from '../home/home';
 import { Signup } from '../signup/signup';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { LoadingController } from 'ionic-angular';
+import { Invite } from '../invite/invite';
 import 'rxjs/Rx';
 
 @Component({
@@ -16,7 +17,8 @@ import 'rxjs/Rx';
 export class Login {
   KakaoTalk:any;
   user : {email : string, password : string}
-  constructor(public navCtrl: NavController, public http: Http, public loadingCtrl: LoadingController) {
+  kakaoUser : any;
+  constructor(public navCtrl: NavController, public http: Http, public loadingCtrl: LoadingController, public modalCtrl: ModalController) {
       
       this.user = {
           email : "",
@@ -30,16 +32,24 @@ export class Login {
       this.KakaoTalk.login(
         function (result) {
             console.log('Successful login!');
-            console.log(result);
+            (<any>window).kakaoUser = result;
+            
         },
         function (message) {
             console.log('Error logging in');
-            console.log(message);
+            alert(message);
         }
       );
+      return this.savePhone(this.kakaoUser);
   }
     
+    savePhone(result){
+        let modal = this.modalCtrl.create(Invite,{user:this.kakaoUser,mode:"kakao"});
+        modal.present();
+    }
+    
     doLogin(){
+        
         
         var headers = new Headers();
             headers.append('Content-Type', 'application/json');
