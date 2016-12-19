@@ -14,23 +14,23 @@ page-newDate {
     .nav_btn {
         color: #ffffff;
     }
-    #date-title{
+    #date-title {
         margin: 0 0 6px 0;
         padding-left: 10px;
         width: 100%;
     }
-    .card-background{
+    .card-background {
         background-color: #f7f7f7;
     }
     .date-title {
         color: $font-color;
         font-size: 12px;
     }
-    .date-course{
+    .date-course {
         margin: 6px 0 6px 0;
         width: 100%;
     }
-    .date-course-content{
+    .date-course-content {
         padding: 13px 0px 0px 0px;
     }
     .date-content {
@@ -42,6 +42,10 @@ page-newDate {
         height: 130px;
         width: 130px;
         margin: 6px;
+        border-color: #cdcdcd;
+        color: #cdcdcd;
+        font-size: 5.0em;
+        
     }
     .map_img {
         height: 130px;
@@ -51,12 +55,17 @@ page-newDate {
         color: $app-color;
         font-size: 13px;
     }
-    .add_btn{
+    .div-btn{
+        width: 100vh;
+        text-align: center;
+        align-content: center;
+    }
+    .add_btn {
         background-color: $app-color;
-        width: 100%;
-        align-items: center;
-        ion-icon{
-            font-size:3.0em;
+        position: absolute;
+        margin-left: 45% !important;
+        ion-icon {
+            font-size: 3.0em;
         }
     }
 }

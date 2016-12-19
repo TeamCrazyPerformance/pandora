@@ -19,17 +19,27 @@
     </ion-card>
     <ion-card *ngFor="let course of courses" class="date-course">
         <ion-card-content class="date-course-content">
-<!--
+            <!--
             <div class="date-content">
                <ion-textarea [(ngModel)]="date2.review" (ngModelChange)="date2.review=$event"></ion-textarea>
                 
             </div>
 -->
+            <div>
+                <ion-textarea class="date-content" placeholder="데이트 내용을 입력해주세요."></ion-textarea>
+            </div>
             <ion-row>
-<!--
+                <!--
                 <ion-col><img class="date_pic" [(ngModel)]="base64Image" [src]="base64Image" *ngIf="base64Image" (click)=openPicture()>
                 </ion-col>
 -->
+                <ion-col>
+                        
+                        <button ion-button class="date_pic" outline>
+                        <ion-icon name="add"> </ion-icon>
+                    
+                    </button>
+                </ion-col>
             </ion-row> <img class="map_img" src="assets/img/map.png" (click)=openPicture()>
             <button class="date_info" ion-button clear icon-only>
                 <ion-icon name="ios-camera-outline"></ion-icon>
@@ -41,30 +51,41 @@
                 <div>
                     <ion-icon name="ios-pricetag-outline"> </ion-icon>
                 </div>
-                
             </button>
             <button class="date_info" ion-button clear icon-only>
                 <div>
                     <ion-icon name="ios-star-outline"></ion-icon>
                 </div>
-                <div>3.5</div>
+                <div></div>
             </button>
         </ion-card-content>
     </ion-card>
     <ion-card class="date-course">
         <ion-card-content class="date-course-content">
-<!--
+            <!--
             <div class="date-content">
                <ion-textarea [(ngModel)]="date2.review" (ngModelChange)="date2.review=$event"></ion-textarea>
                 
             </div>
 -->
+            
+                <ion-textarea class="date-content" placeholder="데이트 내용을 입력해주세요."></ion-textarea>
+            
             <ion-row>
-<!--
+                <!--
                 <ion-col><img class="date_pic" [(ngModel)]="base64Image" [src]="base64Image" *ngIf="base64Image" (click)=openPicture()>
                 </ion-col>
--->
-            </ion-row> <img class="map_img" src="assets/img/map.png" (click)=openPicture()>
+    -->
+                <ion-col>
+                    <button ion-button class="date_pic" outline>
+                        <ion-icon name="add"> </ion-icon>
+                    </button>
+                </ion-col>
+            </ion-row>
+            
+<!--        지도 그리기    
+            <img class="map_img" src="assets/img/map.png" (click)=openPicture()>
+-->            
             <button class="date_info" ion-button clear icon-only>
                 <ion-icon name="ios-camera-outline"></ion-icon>
             </button>
@@ -75,17 +96,19 @@
                 <div>
                     <ion-icon name="ios-pricetag-outline"> </ion-icon>
                 </div>
-                <ion-textarea [(ngModel)] = "test.count" (ngModelChange)="test.count=$event">{{test.count}}</ion-textarea>
+                <div> </div>
             </button>
             <button class="date_info" ion-button clear icon-only>
                 <div>
                     <ion-icon name="ios-star-outline"></ion-icon>
                 </div>
-                <div>3.5</div>
+                <div></div>
             </button>
         </ion-card-content>
     </ion-card>
     <div class="div-btn">
-      <button ion-button round class="btn" (click)=newDateForm()>추가하기</button>
+        <button ion-fab mini class="add_btn" (click)=newDateForm()>
+            <ion-icon name="add"></ion-icon>
+        </button>
     </div>
 </ion-content>
