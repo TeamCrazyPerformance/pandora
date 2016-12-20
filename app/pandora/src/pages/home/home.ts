@@ -132,7 +132,11 @@ export class Home {
   }
     
   createNewDate(){
-      this.navCtrl.push(NewDate);
+    if (this.navParams.get("couple_id") != 0) {
+        this.navCtrl.push(NewDate, this.navParams.data);
+    } else {
+        alert("아직 연인이 없어서 못만들어요!");
+    }
   }
     
     openDetail(index){

@@ -5,6 +5,7 @@ import { LoadingController, AlertController, ModalController } from 'ionic-angul
 import { Camera } from 'ionic-native';
 import { MapList } from '../mapList/mapList';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import { Home } from '../home/home';
 
 @Component({
   selector: 'page-newDate',
@@ -18,7 +19,7 @@ export class NewDate {
     
     date : {review : string, title : string, courses : Array<Object>};
     count : number;
-    courses : Array<any>;
+    courses : any;
     timer : number;
     shareMap : any;
     shareDaum : any;
@@ -63,7 +64,7 @@ export class NewDate {
         if(this.course.pictures[0] != undefined){
             this.course.main_photo = this.course.pictures[0].photo;    
         }
-        this.course.couple_id = "DP32hjeEvSoj7";
+        this.course.couple_id = this.navParams.get("couple_id");
         this.course.photos = this.course.pictures;
         this.course.locationObj = null;
         
@@ -260,7 +261,7 @@ export class NewDate {
         this.newDateForm();
         
         var headers = new Headers();
-            headers.append('Content-Type','a pplication/json');
+            headers.append('Content-Type','application/json');
             var options = new RequestOptions({
                 headers: headers
             });
@@ -272,16 +273,25 @@ export class NewDate {
             days : "2016-12-23",
             public_cond: "1",
             course : this.courses,
-            thumbnail : ""
+            thumbnail : "",
+            title : this.courses.title
         }
         
         if (this.courses[0].pictures[0] != undefined){
             data.thumbnail = this.courses[0].pictures[0].photo;       
         }
         
-        this.http.post('https://app-pandora.azurewebsites.net/pandora/api/couples/v1.0/DP32hjeEvSoj7/dates',data,options).subscribe(
+        let loading = this.loadingCtrl.create({
+            content: "Please wait...",
+            duration: 20000,
+            dismissOnPageChange: true
+        });
+        
+        loading.present();
+        
+        this.http.post('https://app-pandora.azurewebsites.net/pandora/api/couples/v1.0/'+this.navParams.get("couple_id")+'/dates',data,options).subscribe(
                 res => {
-                    alert("success" + res.json()); 
+                    this.navCtrl.setRoot(Home,this.navParams.data); 
                 }, (err) => {
                     alert("fail" + err.json());
             });

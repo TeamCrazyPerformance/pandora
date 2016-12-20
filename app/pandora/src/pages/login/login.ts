@@ -28,7 +28,9 @@ export class Login {
   }
     
   doKakaoLogin(){
+      
       this.KakaoTalk = (<any>window).KakaoTalk;
+      alert(JSON.stringify(this.KakaoTalk));
       this.KakaoTalk.login(
         function (result) {
             console.log('Successful login!');
