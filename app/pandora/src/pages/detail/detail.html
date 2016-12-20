@@ -39,7 +39,7 @@
         </div>
     </div>
     <div class="course">
-        <ion-card *ngFor="let course of courses" (click)=openAlbum(date.index)>
+        <ion-card *ngFor="let course of courses" (click)="openAlbum(courses)">
         <img src={{course.img}} />
         <div class="curtain"></div>
         <div class="card-title">{{course.title}}</div>

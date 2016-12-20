@@ -1,25 +1,44 @@
 import { Component } from '@angular/core';
 
 import { NavController, NavParams } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 import { Slide } from '../slide/slide';
+import { Http, Headers, RequestOptions } from '@angular/http';
 
 @Component({
   selector: 'page-detail',
   templateUrl: 'detail.html'
 })
 export class Detail {
+    
     local: Storage;
-    date : {index : number, title : string, price: number, location: string, score: number};
+    date : { title : string, price: number, location: string, score: number};
     courses : Array<{index : number, title:string, img:string}>;
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    sumPrice : number;
+    constructor(public navCtrl: NavController, public navParams: NavParams, public http : Http, public loadingCtrl: LoadingController) {
+        
+         var headers= new Headers();
+        //headers.append('Content-Type', 'application/json');
+        var options = new RequestOptions({headers: headers});
+        var url = 'https://app-pandora.azurewebsites.net/pandora/api/couples/v1.0/';
+        
+        this.presentLoading();
+       this.sumPrice =0; this.http.get(url+this.navParams.get("couple_id")+'/dates/'+this.navParams.get("date").id).subscribe(res => {
+            this.createCourse(res.json());
+            
+        }, (err) =>{console.log(err)});
+        
+        
+
         this.date = {
-            index : null,
-            title: '200일 기념 서촌 탐방기',
-            price: 480000,
-            location: '홍대',
+            title: this.navParams.get("date").title,
+            price: this.sumPrice,
+            location: "",
             score: 3.5
         };
+        
         this.courses = [];
+        /*
         this.courses.push({
             index : 1,
             title:'제비다방',
@@ -49,15 +68,41 @@ export class Detail {
             index : 6,
             title:'꺄르륵꺄르륵꺄르륵',
             img:'https://s3-ap-northeast-1.amazonaws.com/wisdomenews/1920x1080.90.205953-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%83%E1%85%B2%E1%84%89%E1%85%B3+%E1%84%8E%E1%85%AC%E1%84%8B%E1%85%B2%E1%84%8C%E1%85%A5%E1%86%BC.jpg'
-        });
+        });*/
         
     };
+createCourse(datas){
+    
+            console.dir(datas);
+            for(var i=0; i<datas.length; i++){
+                var imgurl = 'http://indigofriday.azurewebsites.net/'+datas[i].mainPhoto;
+                this.sumPrice += datas[i].price;
+                this.courses.push({
+                    index : i+1,
+                    img : imgurl,
+                    title : datas[i].title
+                });
+                this.date.location = datas[i].location;
+                this.date.score = datas[i].score;
+            }
+            
+        }
+        
+        
+          presentLoading() {
+    let loading = this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 5000,
+      dismissOnPageChange: false
+    });
+    loading.present();
+  }
     ngOnInit()  {
     
     }
+
     ionViewWillEnter() {
         this.drawMap();
-        this.date.index = this.navParams.get("index");
         
         console.dir(this.date);
     }
@@ -84,6 +129,7 @@ export class Detail {
     }
     
     openAlbum(index){
-        this.navCtrl.push(Slide,{"index":index});
+        this.navCtrl.push(Slide,{"course":index});
     }
 }
+
