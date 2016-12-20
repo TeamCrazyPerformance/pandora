@@ -19,7 +19,8 @@ export class Home {
     request : {from : string, to : string};
     respond : {from : string, to : string}
     state : {solo : number, wait : number, accept : number};
-    dates: Array<{index : number,title: string, price: number, location: string, image: string}>;
+    dates: any;
+    data : any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http : Http, public loadingCtrl: LoadingController, public modalCtrl: ModalController) {
       
       this.state = {
@@ -92,41 +93,68 @@ export class Home {
     
     loadDate(){
       this.dates = [];
-      this.dates.push({
-        index: 1,
-        title: '200일 기념 서촌 탐방기',
-        price: 48000,
-        location: '홍대',
-        image: 'null'
-      });
-      this.dates.push({
-        index: 2,
-        title: '2016 지산 락페스티발',
-        price: 92000,
-        location: '강원도',
-        image: 'null'
-      });
-      this.dates.push({
-        index: 3,
-        title: '비오는날엔 공릉 놀숲',
-        price: 21000,
-        location: '노원구',
-        image: 'null'
-      });
-      this.dates.push({
-        index: 4,
-        title: '2박3일 제주도-한라산 등반',
-        price: 181000,
-        location: '제주특별시',
-        image: 'null'
-      });
+        
+        var headers= new Headers();
+        //headers.append('Content-Type', 'application/json');
+        var options = new RequestOptions({headers: headers});
+        var url = 'https://app-pandora.azurewebsites.net/pandora/api/couples/v1.0/';
+        this.presentLoading();
+        this.http.get(url+this.navParams.get("relation").id+'/dates').subscribe(res => {
+            this.presentLoading();
+            this.createDate(res.json());
+            
+        }, (err) =>{console.log(err)});
+        
+       
+//      this.dates.push({
+//        index: 1,
+//        title: '200일 기념 서촌 탐방기',
+//        price: 48000,
+//        location: '홍대',
+//        image: 'null'
+//      });
+//      this.dates.push({
+//        index: 2,
+//        title: '2016 지산 락페스티발',
+//        price: 92000,
+//        location: '강원도',
+//        image: 'null'
+//      });
+//      this.dates.push({
+//        index: 3,
+//        title: '비오는날엔 공릉 놀숲',
+//        price: 21000,
+//        location: '노원구',
+//        image: 'null'
+//      });
+//      this.dates.push({
+//        index: 4,
+//        title: '2박3일 제주도-한라산 등반',
+//        price: 181000,
+//        location: '제주특별시',
+//        image: 'null'
+//      });
     }
     
+
+    createDate(datas){
+        console.dir(datas);
+        for (var i = 0; i < datas.length; i++) {
+            this.dates.push({
+                id : datas[i].id,
+                title : datas[i].title,
+                price : 0,
+                location : "",
+                image : "http://indigofriday.azurewebsites.net/" + datas[i].thumbnail
+            });
+        }
+    }
+
     presentLoading() {
     let loading = this.loadingCtrl.create({
       content: "Please wait...",
       duration: 5000,
-      dismissOnPageChange: true
+      dismissOnPageChange: false
     });
     loading.present();
   }
@@ -135,8 +163,12 @@ export class Home {
       this.navCtrl.push(NewDate);
   }
     
-    openDetail(index){
-        this.navCtrl.push(Detail,{"index":index});
+    openDetail(dateParm){
+        
+        
+        console.dir(dateParm);
+        
+        this.navCtrl.push(Detail,{date : dateParm, couple_id : this.navParams.get("couple_id")});
     }
     
     invitePartner(){

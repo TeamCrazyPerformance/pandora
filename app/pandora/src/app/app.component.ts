@@ -19,7 +19,7 @@ import { MapList } from '../pages/mapList/mapList';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = NewDate;
+  rootPage: any = Login;
 
   pages: Array<{title: string, component: any}>;
 
