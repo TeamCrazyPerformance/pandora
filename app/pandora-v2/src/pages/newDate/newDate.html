@@ -1,0 +1,122 @@
+<ion-header class="header">
+    <ion-navbar>
+        <ion-title>
+            <p>New Date</p>
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button icon-only (click)=backPage()>
+                <ion-icon name="close" class="nav_icon"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons end>
+            <button ion-button clear type="submit" class="nav_btn" (click)="saveData()">Save</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content class="card-background">
+    <ion-card id="date-title">
+        <ion-input [(ngModel)] = "courses.title" (ngModelChange)="courses.title" class="date-title" type="text" placeholder="데이트 제목을 입력해 주세요."></ion-input>
+    </ion-card>
+    <ion-card *ngFor="let course of courses" class="date-course">
+       
+        <ion-card-content class="date-course-content">
+           <ion-input [(ngModel)] = "course.title" (ngModelChange)="course.title" class="date-title" type="text" placeholder="코스 제목을 입력해 주세요."></ion-input>
+            <!--
+            <div class="date-content">
+               <ion-textarea [(ngModel)]="date2.review" (ngModelChange)="date2.review=$event"></ion-textarea>
+                
+            </div>
+-->
+            <div>
+                <ion-textarea class="date-content" [(ngModel)]="course.review" (ngModelChange)="course.review=$event"></ion-textarea>
+            </div>
+            <ion-row>
+                <!--
+                <ion-col><img class="date_pic" [(ngModel)]="base64Image" [src]="base64Image" *ngIf="base64Image" (click)=openPicture()>
+                </ion-col>
+-->
+                <ion-col *ngFor="let picture of course.pictures">
+                    <img [src]="picture.photo">
+                </ion-col>
+            </ion-row>
+            <button class="date_info" ion-button clear icon-only>
+                <ion-icon name="ios-camera-outline"></ion-icon>
+            </button>
+            <button class="date_info" ion-button clear icon-only>
+                <ion-icon name="ios-pin-outline"></ion-icon>
+            </button>
+            <button class="date_info" ion-button clear icon-only (click)="insertPrice(course)"> 
+                <div>
+                    <ion-icon name="ios-pricetag-outline"> </ion-icon>{{course.price}}
+                </div>
+            </button>
+            <button class="date_info" ion-button clear icon-only (click)="insertScore(course)">
+                <div>
+                    <ion-icon name="ios-star-outline"></ion-icon>{{course.score}}
+                </div>
+                <div></div>
+            </button>
+        </ion-card-content>
+    </ion-card>
+    <ion-card class="date-course">
+       
+        <ion-card-content class="date-course-content">
+           <ion-input [(ngModel)] = "course.title" (ngModelChange)="course.title" class="date-title" type="text" placeholder="코스 제목을 입력해 주세요."></ion-input>
+            <!--
+            <div class="date-content">
+               <ion-textarea [(ngModel)]="date2.review" (ngModelChange)="date2.review=$event"></ion-textarea>
+                
+            </div>
+-->
+            
+                <ion-textarea class="date-content" placeholder="데이트 내용을 입력해주세요." [(ngModel)]="course.review" (ngModelChange)="course.review=$event"></ion-textarea>
+            
+            <ion-row>
+                <!--
+                <ion-col><img class="date_pic" [(ngModel)]="base64Image" [src]="base64Image" *ngIf="base64Image" (click)=openPicture()>
+                </ion-col>
+    -->
+                <ion-col>
+                    <button ion-button class="date_pic" outline (click) = "openPicture(course)">
+                        <ion-icon name="add"> </ion-icon>
+                    </button>
+                </ion-col>
+                <ion-col *ngFor="let picture of course.pictures">
+                    <img [src]="picture.photo">
+                </ion-col>
+            </ion-row>
+            
+<!--        지도 그리기    
+            <img class="map_img" src="assets/img/map.png" (click)=openPicture()>
+            
+            
+-->         
+            <div class="map" id="insertMap">
+
+            </div>   
+            <button class="date_info" ion-button clear icon-only>
+                <ion-icon name="ios-camera-outline"></ion-icon>
+            </button>
+            <button class="date_info" ion-button clear icon-only (click)="insertLocation(course)" >
+                <ion-icon name="ios-pin-outline"></ion-icon>{{course.locationObj.address}}
+            </button>
+            <button class="date_info" ion-button clear icon-only (click)="insertPrice(course)"> 
+                <div>
+                    <ion-icon name="ios-pricetag-outline"> </ion-icon>{{course.price}}
+                </div>
+                <div> </div>
+            </button>
+            <button class="date_info" ion-button clear icon-only (click)="insertScore(course)">
+                <div>
+                    <ion-icon name="ios-star-outline"></ion-icon>{{course.score}}
+                </div>
+                <div></div>
+            </button>
+        </ion-card-content>
+    </ion-card>
+    <div class="div-btn">
+        <button ion-fab mini class="add_btn" (click)=newDateForm()>
+            <ion-icon name="add"></ion-icon>
+        </button>
+    </div>
+</ion-content>

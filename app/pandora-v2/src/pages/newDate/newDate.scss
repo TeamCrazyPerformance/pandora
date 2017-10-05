@@ -1,0 +1,71 @@
+page-newDate {
+    $font-color: #a3a3a3;
+    $app-color: #50c188;
+    ion-title {
+        background-color: $app-color;
+    }
+    ion-title p {
+        color: #ffffff;
+    }
+    .nav_icon {
+        color: #ffffff;
+        font-size: 15px;
+    }
+    .nav_btn {
+        color: #ffffff;
+    }
+    #date-title {
+        margin: 0 0 6px 0;
+        padding-left: 10px;
+        width: 100%;
+    }
+    .card-background {
+        background-color: #f7f7f7;
+    }
+    .date-title {
+        color: $font-color;
+        font-size: 12px;
+    }
+    .date-course {
+        margin: 6px 0 6px 0;
+        width: 100%;
+    }
+    .date-course-content {
+        padding: 13px 0px 0px 0px;
+    }
+    .date-content {
+        color: $font-color;
+        font-size: 12px;
+        padding: 0 6px;
+    }
+    .date_pic {
+        height: 130px;
+        width: 130px;
+        margin: 6px;
+        border-color: #cdcdcd;
+        color: #cdcdcd;
+        font-size: 5.0em;
+        
+    }
+    .map_img {
+        height: 130px;
+        width: 100%;
+    }
+    .date_info {
+        color: $app-color;
+        font-size: 13px;
+    }
+    .div-btn{
+        width: 100vh;
+        text-align: center;
+        align-content: center;
+    }
+    .add_btn {
+        background-color: $app-color;
+        position: absolute;
+        margin-left: 45% !important;
+        ion-icon {
+            font-size: 3.0em;
+        }
+    }
+}

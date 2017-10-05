@@ -1,0 +1,65 @@
+page-home {
+  $font-color: #a3a3a3;
+  $app-color: #50c188;
+  ion-title {
+    background-color: $app-color;
+  }
+  ion-title p {
+    color: #ffffff;
+  }
+  .nav_icon {
+    color: #ffffff;
+  }
+  .card-background-page {
+    ion-card {
+      position: relative;
+      text-align: center;
+      margin-top: 0px;
+      margin-left: 0px;
+      margin-right: 0px;
+      width: 100%;
+      margin-bottom: 6px;
+      img {
+        opacity: 0.8;
+        filter: blur(3px);
+        height: 200px !important;
+      }
+      ion-icon {
+        font-size: 1.1em;
+      }
+    }
+    .curtain {
+      position: absolute;
+      width: 100%;
+      background-color: #000;
+      color: #000;
+      top: 0%;
+      height: 100%;
+      opacity: 0.3;
+    }
+    .card-title {
+      position: absolute;
+      top: 36%;
+      font-size: 1.5em;
+      width: 100%;
+      color: #fff;
+    }
+    .card-subtitle {
+      font-size: 1.1em;
+      position: absolute;
+      top: 52%;
+      width: 100%;
+      color: #fff;
+    }
+    button {
+      background-color: $app-color;
+      ion-icon {
+        font-size: 3.0em;
+      }
+    }
+  }
+  .accept-btn {
+    color: #ffffff !important;
+  }
+
+}

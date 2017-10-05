@@ -1,0 +1,93 @@
+page-detail {
+    $font-color: #a3a3a3;
+    $app-color: #50c188;
+    .back {
+        background-color: #dedede;
+        height: 100%;
+    }
+    ion-title {
+        background-color: $app-color;
+    }
+    ion-title p {
+        color: #ffffff;
+    }
+    .nav_icon {
+        color: #ffffff;
+    }
+    .map {
+        height: 31%;
+        margin-bottom: 2%;
+    }
+    .back {
+        width:100%;
+    }
+    .information {
+        height: 15%;
+        background-color: #ffffff;
+        width: 98%;
+        margin-left: 1%;
+        margin-right: 1%;
+        margin-bottom: 2%;
+        .title {
+            height: 60%;
+            font-size: 1.4em;
+            padding-top: 0.8em;
+            padding-left: 0.8em;
+            color: $app-color;
+        }
+        .value {
+            height: 40%;
+            ion-col {
+                padding-left: 1em;
+                .innerText {
+                    float: right;
+                    font-size: 0.8em;
+                    padding-left: 0.5em;
+                    color: $app-color;
+                }
+                ion-icon {
+                    color: $app-color;
+                }
+            }
+            ion-grid {
+                height: 100%;
+            }
+            ion-row {
+                height: 100%;
+            }
+        }
+    }
+    .course {
+        height: 50%;
+        ion-card {
+            position: relative;
+            text-align: center;
+            margin-top: 0px;
+            margin-left: 1%;
+            margin-right: 1%;
+            width: 98%;
+            margin-bottom: 1%;
+            height: 80px;
+            img {
+                opacity: 0.8;
+                filter: blur(3px);
+            }
+            .curtain {
+                position: absolute;
+                width: 100%;
+                background-color: #000;
+                color: #000;
+                top: 0%;
+                height: 100%;
+                opacity: 0.3;
+            }
+            .card-title {
+                position: absolute;
+                top: 36%;
+                font-size: 1.3em;
+                width: 100%;
+                color: #fff;
+            }
+        }
+    }
+}

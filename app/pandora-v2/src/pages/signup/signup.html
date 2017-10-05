@@ -1,0 +1,96 @@
+<!--<ion-header>-->
+
+  <!--<ion-navbar>-->
+    <!--<ion-title>{{ 'SIGNUP_TITLE' | translate }}</ion-title>-->
+  <!--</ion-navbar>-->
+
+<!--</ion-header>-->
+
+
+<!--<ion-content>-->
+  <!--<form (submit)="doSignup()">-->
+    <!--<ion-list>-->
+
+      <!--<ion-item>-->
+        <!--<ion-label fixed>{{ 'NAME' | translate }}</ion-label>-->
+        <!--<ion-input type="text" [(ngModel)]="account.name" name="name"></ion-input>-->
+      <!--</ion-item>-->
+
+      <!--<ion-item>-->
+        <!--<ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>-->
+        <!--<ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>-->
+      <!--</ion-item>-->
+
+      <!--&lt;!&ndash;-->
+      <!--Want to add a Username? Here you go:-->
+
+      <!--<ion-item>-->
+        <!--<ion-label floating>Username</ion-label>-->
+        <!--<ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>-->
+      <!--</ion-item>-->
+      <!--&ndash;&gt;-->
+
+      <!--<ion-item>-->
+        <!--<ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>-->
+        <!--<ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>-->
+      <!--</ion-item>-->
+
+      <!--<div padding>-->
+        <!--<button ion-button color="primary" block>{{ 'SIGNUP_BUTTON' | translate }}</button>-->
+      <!--</div>-->
+
+    <!--</ion-list>-->
+  <!--</form>-->
+<!--</ion-content>-->
+
+<ion-header class="header">
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="arrow-round-back" class="nav_icon"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      <p>Pandora</p>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-grid>
+    <ion-row class="photo">
+      <ion-col>
+        <button ion-button icon-only clear id="btn_icon">
+          <ion-icon name="camera" id="icon_camera"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="inputbox">
+      <ion-col>
+        <ion-list no-lines>
+          <ion-item>
+            <ion-input type="text" placeholder="Email Address" name="EmailAddress" class="input_box" [(ngModel)]="user.email" (ngModelChange)="user.email=$event"></ion-input>
+          </ion-item>
+          <br>
+          <ion-item>
+            <ion-input type="text" placeholder="Name" class="input_box" name="Name" [(ngModel)]="user.name" (ngModelChange)="user.name=$event"></ion-input>
+          </ion-item>
+          <br>
+
+          <ion-item>
+            <ion-input type="password" placeholder="Password" name="Password" class="input_box" [(ngModel)]="user.password" (ngModelChange)="user.password=$event"> </ion-input>
+          </ion-item>
+          <br>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Phone Number" name="PhoneNumber" class="input_box" [(ngModel)]="user.phoneNum" (ngModelChange)="user.phoneNum=$event"> </ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row class="buttonbox">
+      <ion-col>
+        <button ion-button round full class="button" id="btn_sign_up" (click)=doSignup()>Sign up</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
