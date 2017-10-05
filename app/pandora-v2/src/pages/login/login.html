@@ -1,39 +1,79 @@
-<ion-header>
+<!--<ion-header>-->
 
-  <ion-navbar>
-    <ion-title>{{ 'LOGIN_TITLE' | translate }}</ion-title>
-  </ion-navbar>
+  <!--<ion-navbar>-->
+    <!--<ion-title>{{ 'LOGIN_TITLE' | translate }}</ion-title>-->
+  <!--</ion-navbar>-->
 
-</ion-header>
+<!--</ion-header>-->
 
 
-<ion-content>
-  <form (submit)="doLogin()">
-    <ion-list>
+<!--<ion-content>-->
+  <!--<form (submit)="doLogin()">-->
+    <!--<ion-list>-->
 
-      <ion-item>
-        <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
-        <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
-      </ion-item>
+      <!--<ion-item>-->
+        <!--<ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>-->
+        <!--<ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>-->
+      <!--</ion-item>-->
 
-      <!--
-      Want to use a Username instead of an Email? Here you go:
+      <!--&lt;!&ndash;-->
+      <!--Want to use a Username instead of an Email? Here you go:-->
 
-      <ion-item>
-        <ion-label floating>{{ 'USERNAME' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>
-      </ion-item>
-      -->
+      <!--<ion-item>-->
+        <!--<ion-label floating>{{ 'USERNAME' | translate }}</ion-label>-->
+        <!--<ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>-->
+      <!--</ion-item>-->
+      <!--&ndash;&gt;-->
 
-      <ion-item>
-        <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
-        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
-      </ion-item>
+      <!--<ion-item>-->
+        <!--<ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>-->
+        <!--<ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>-->
+      <!--</ion-item>-->
 
-      <div padding>
-        <button ion-button color="primary" block>{{ 'LOGIN_BUTTON' | translate }}</button>
-      </div>
+      <!--<div padding>-->
+        <!--<button ion-button color="primary" block>{{ 'LOGIN_BUTTON' | translate }}</button>-->
+      <!--</div>-->
 
-    </ion-list>
-  </form>
+    <!--</ion-list>-->
+  <!--</form>-->
+<!--</ion-content>-->
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row class="logo">
+      <ion-col></ion-col>
+    </ion-row>
+    <!-- 입력창 -->
+    <ion-row class="inputbox">
+      <ion-col>
+        <ion-list no-lines>
+          <ion-item>
+            <ion-icon ios="ios-contact-outline" md="md-contact" class="icon"></ion-icon>
+            <input type="text" placeholder="Username" class="input_box" [(ngModel)]="account.email" (ngModelChange)="user.email=$event">
+          </ion-item>
+          <ion-item>
+            <ion-icon ios="ios-unlock-outline" md="md-unlock" class="icon"></ion-icon>
+            <input type="text" placeholder="Password" class="input_box" [(ngModel)]="account.password" (ngModelChange)="user.password=$event">
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <!-- 버튼영역 -->
+    <ion-row class="buttonbox">
+      <ion-col>
+        <ion-list no-lines>
+          <button ion-button color="#ffffff" round class="button" id="btn_login" (click)=doLogin()>LOGIN</button>
+          <button ion-button id="btn_space"> OR </button>
+          <button ion-button color="#ffffff" round class="button" id="btn_kakao" (click)=doKakaoLogin()>Log in with Kakao</button>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <!-- 회원가입 비밀번호 찾기 영역 -->
+    <ion-row class="additional">
+      <ion-col width-33 (click)=doSignUp()>Create an account</ion-col>
+      <ion-col width-33></ion-col>
+      <ion-col width-33>Forgot Password</ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
