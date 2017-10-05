@@ -48,4 +48,8 @@ export class LoginPage {
       toast.present();
     });
   }
+
+  doSignUp() {
+    this.navCtrl.push('SignupPage')
+  }
 }

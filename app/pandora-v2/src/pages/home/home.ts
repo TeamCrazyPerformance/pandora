@@ -4,9 +4,6 @@ import {TranslateService} from '@ngx-translate/core';
 import {IonicPage, NavController, ToastController} from 'ionic-angular';
 
 import {LoadingController} from 'ionic-angular';
-// import { NewDate } from '../newDate/newDate';
-// import { Detail } from '../detail/detail';
-// import { Invite } from '../invite/invite';
 
 @IonicPage()
 @Component({
@@ -147,21 +144,16 @@ export class HomePage {
   //   loading.present();
   // }
   //
-  // createNewDate(){
-  //   if (this.navParams.get("couple_id") != 0) {
-  //       this.navCtrl.push(NewDate, this.navParams.data);
-  //   } else {
-  //       alert("아직 연인이 없어서 못만들어요!");
-  //   }
-  // }
-  //
-  //   openDetail(dateParm){
-  //
-  //
-  //       console.dir(dateParm);
-  //
-  //       this.navCtrl.push(Detail,{date : dateParm, couple_id : this.navParams.get("couple_id")});
-  //   }
+  createNewDate() {
+    this.navCtrl.push('NewDatePage');
+  }
+
+  openDetail(dateParm) {
+    console.dir(dateParm);
+
+    this.navCtrl.push('DetailPage');
+  }
+
   //
   //   invitePartner(){
   //       let modal = this.modalCtrl.create(Invite,this.navParams.data);
